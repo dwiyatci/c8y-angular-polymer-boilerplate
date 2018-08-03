@@ -1,0 +1,104 @@
+<!--<div class="mx-auto" style="width: 400px;">-->
+<!--<h2>LOGIN</h2>-->
+<!--<p>{{message}}</p>-->
+<!--<p>-->
+<!--<button (click)="login()" *ngIf="!authService.loggedIn">Login</button>-->
+<!--<button (click)="logout()" *ngIf="authService.loggedIn">Logout</button>-->
+<!--</p>-->
+<!--<paper-loginscreen-->
+<!--title="Login to"-->
+<!--subtitle="Cumulocity UI Fiddle"-->
+<!--[loading]="loading"-->
+<!--[errorMsg]="errorMsg"-->
+<!--(login-btn-click)="login()"-->
+<!--&gt;-->
+<!--</paper-loginscreen>-->
+<!--<c8y-login></c8y-login>-->
+<!--</div>-->
+
+<div
+  class="mx-auto mt-lg-5"
+  style="width: 600px;"
+  [hidden]="!loading"
+>
+  <div class="progress">
+    <div
+      class="progress-bar progress-bar-striped progress-bar-animated"
+      style="width: 100%"
+    >
+    </div>
+  </div>
+</div>
+
+<form
+  class="form-signin"
+  [hidden]="loading"
+  [formGroup]="loginForm"
+  (ngSubmit)="login()"
+>
+  <div class="text-center">
+    <img
+      class="mb-4"
+      src="assets/img/icons8-violin-100.png"
+      alt=""
+      width="72"
+      height="72"
+    >
+  </div>
+  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+  <label for="inputTenant" class="sr-only">Tenant</label>
+  <input
+    id="inputTenant"
+    class="form-control"
+    placeholder="Tenant"
+    formControlName="tenant"
+  >
+
+  <label for="inputUsername" class="sr-only">Username</label>
+  <input
+    id="inputUsername"
+    class="form-control"
+    placeholder="Username"
+    required
+    autofocus
+    formControlName="user"
+    [class.is-invalid]="loginForm.get('user').dirty && loginForm.get('user').invalid"
+  >
+
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input
+    type="password"
+    id="inputPassword"
+    class="form-control"
+    placeholder="Password"
+    required
+    formControlName="password"
+    [class.is-invalid]="loginForm.get('password').dirty && loginForm.get('password').invalid"
+  >
+
+  <div class="checkbox mb-3">
+    <label>
+      <input
+        type="checkbox"
+        formControlName="rememberMe"
+      >
+      Remember me
+    </label>
+  </div>
+
+  <button
+    class="btn btn-lg btn-primary btn-block"
+    [disabled]="loginForm.pristine || loginForm.invalid"
+  >
+    Sign in
+  </button>
+
+  <div class="card mt-3" [hidden]="!message">
+    <div class="card-body">
+      {{message}}
+    </div>
+  </div>
+
+  <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+</form>

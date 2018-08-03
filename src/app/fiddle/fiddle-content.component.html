@@ -1,0 +1,30 @@
+<p>
+  fiddle content works!
+</p>
+
+<div>
+  <label>Hello from Angular</label>
+  <input [(ngModel)]="value">
+</div>
+<paper-input
+  label="Hello from Polymer"
+  ironControl
+  [(ngModel)]="value"
+  ngDefaultControl
+>
+</paper-input>
+
+<div>
+  <label>Non-form two-way bindings!</label>
+  <input type="checkbox" [(ngModel)]="checked">
+</div>
+<paper-checkbox
+  [checked]="checked"
+  (checked-changed)="checked = $event.detail.value"
+>
+  Checked
+</paper-checkbox>
+
+<div class="mt-4">
+  <button (click)="logout()">Logout</button>
+</div>

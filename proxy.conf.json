@@ -1,0 +1,14 @@
+{
+  "/apps/c8yangularpolymer/**": {
+    "target": "http://localhost:4200/",
+    "pathRewrite": {
+      "^/apps/c8yangularpolymer": ""
+    }
+  },
+  "/**!(apps)/**/*": {
+    "target": "https://glenn.cumulocity.com/",
+    "changeOrigin": true,
+    "secure": true,
+    "ws": false
+  }
+}
