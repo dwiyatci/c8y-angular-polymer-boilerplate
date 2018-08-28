@@ -1,29 +1,62 @@
-import { TestBed, async } from '@angular/core/testing';
+import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
+import { RouterLinkDirectiveStub } from '../testing/router-directive-link-stub';
 import { AppComponent } from './app.component';
 
-xdescribe('AppComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+describe('AppComponent', () => {
+  it('can get RouterLinks from template', async(() => {
+    setup().then(({ routerLinks }) => {
+      expect(routerLinks.length)
+        .toEqual(3, 'should have 3 routerLinks');
+      expect(routerLinks[0].linkParams)
+        .toEqual('/');
+      expect(routerLinks[1].linkParams)
+        .toEqual('/fiddle');
+      expect(routerLinks[2].linkParams)
+        .toEqual('/about');
+    });
+  }));
+
+  it('can click Fiddle link in template', async(() => {
+    setup().then(({ fixture, linkDebugElts, routerLinks }) => {
+      const fiddleLinkDebugElt = linkDebugElts[1]; // heroes link DebugElement
+      const fiddleLink = routerLinks[1]; // heroes link directive
+
+      expect(fiddleLink.navigatedTo)
+        .toBeNull('should not have navigated yet');
+
+      fiddleLinkDebugElt.triggerEventHandler('click', null);
+
+      expect(fiddleLink.navigatedTo)
+        .toEqual('/fiddle');
+    });
+  }));
+
+  function setup() {
+    return TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        RouterLinkDirectiveStub
       ],
-    }).compileComponents();
-  }));
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
-  it(`should have as title 'c8y-angular-polymer-boilerplate'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('c8y-angular-polymer-boilerplate');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to c8y-angular-polymer-boilerplate!');
-  }));
+      schemas: [NO_ERRORS_SCHEMA]
+    }).compileComponents()
+      .then(() => {
+        const fixture: ComponentFixture<AppComponent> = TestBed.createComponent(AppComponent);
+        const comp: AppComponent = fixture.componentInstance;
+
+        fixture.detectChanges(); // trigger initial data binding
+
+        // find DebugElements with an attached RouterLinkStubDirective
+        const linkDebugElts: DebugElement[] = fixture.debugElement
+          .queryAll(By.directive(RouterLinkDirectiveStub));
+
+        // get attached link directive instances
+        // using each DebugElement's injector
+        const routerLinks: RouterLinkDirectiveStub[] = linkDebugElts.map(debugElt => debugElt.injector.get(RouterLinkDirectiveStub));
+
+        return { fixture, comp, linkDebugElts, routerLinks };
+      });
+  }
 });
