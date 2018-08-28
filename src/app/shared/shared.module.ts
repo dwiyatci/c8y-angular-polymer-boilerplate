@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { C8yComponentsModule } from '@c8y/ngx-components';
 
+import { AboutComponent } from './about.component';
 import { PageNotFoundComponent } from './not-found.component';
 
 @NgModule({
@@ -13,7 +14,8 @@ import { PageNotFoundComponent } from './not-found.component';
     // C8yComponentsModule
   ],
   declarations: [
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AboutComponent
   ],
   exports: [
     CommonModule,
