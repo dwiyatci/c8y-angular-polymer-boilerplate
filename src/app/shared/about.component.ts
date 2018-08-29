@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   `
 })
 export class AboutComponent {
-  today = 1535469846496;
+  today = 1535527488152;
 }
