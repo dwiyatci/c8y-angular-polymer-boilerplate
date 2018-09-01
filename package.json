@@ -41,6 +41,8 @@
     "codelyzer": "~4.2.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
+    "jest": "23.5.0",
+    "jest-preset-angular": "6.0.0",
     "karma": "~1.7.1",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "~2.0.0",
@@ -56,8 +58,23 @@
     "start": "export NODE_TLS_REJECT_UNAUTHORIZED='0' && ng serve",
     "start:prod": "export NODE_TLS_REJECT_UNAUTHORIZED=0 && ng serve --prod --aot=false --port=4300 --sourcemaps=true --live-reload false",
     "build": "ng build",
-    "test": "ng test",
+    "xtest": "ng test",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --runInBand",
+    "test:coverage": "jest --coverage",
     "lint": "ng lint",
     "e2e": "ng e2e"
+  },
+  "jest": {
+    "preset": "jest-preset-angular",
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setupJest.ts",
+    "transformIgnorePatterns": [
+      "node_modules/(?!@ngrx|angular2-ui-switch|ng-dynamic)"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png)$": "<rootDir>/__mocks__/image.js",
+      "@lib/(.*)": "<rootDir>/src/lib/$1"
+    }
   }
 }

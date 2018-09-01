@@ -30,7 +30,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 - Zip the contents under the `c8y-angular-polymer-boilerplate` directory without the enclosing directory itself. Note that the name of the ZIP archive has to be aligned with the app context path specified in `index.html` and `proxy.conf.json` (default to `c8yangularpolymer`).
 
 ## Running unit tests
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `yarn test` to execute the unit tests via [Jest](https://jestjs.io/en/).
 
 ## Running end-to-end tests
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).

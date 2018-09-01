@@ -3,13 +3,14 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { RouterLinkDirectiveStub } from '../testing/router-directive-link-stub';
+import { configureTests } from '../testing/test-config.helper';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   it('can get RouterLinks from template', async(() => {
     setup().then(({ routerLinks }) => {
       expect(routerLinks.length)
-        .toEqual(3, 'should have 3 routerLinks');
+        .toEqual(3);
       expect(routerLinks[0].linkParams)
         .toEqual('/');
       expect(routerLinks[1].linkParams)
@@ -25,7 +26,7 @@ describe('AppComponent', () => {
       const fiddleLink = routerLinks[1]; // heroes link directive
 
       expect(fiddleLink.navigatedTo)
-        .toBeNull('should not have navigated yet');
+        .toBeNull();
 
       fiddleLinkDebugElt.triggerEventHandler('click', null);
 
@@ -34,16 +35,16 @@ describe('AppComponent', () => {
     });
   }));
 
+  test('renders markup to snapshot', () => {
+    setup().then(({ fixture }) => {
+      expect(fixture).toMatchSnapshot();
+    });
+  });
+
   function setup() {
-    return TestBed.configureTestingModule({
-      declarations: [
-        AppComponent,
-        RouterLinkDirectiveStub
-      ],
-      schemas: [NO_ERRORS_SCHEMA]
-    }).compileComponents()
-      .then(() => {
-        const fixture: ComponentFixture<AppComponent> = TestBed.createComponent(AppComponent);
+    return configureTests(configure)
+      .then((configuredTestBed) => {
+        const fixture: ComponentFixture<AppComponent> = configuredTestBed.createComponent(AppComponent);
         const comp: AppComponent = fixture.componentInstance;
 
         fixture.detectChanges(); // trigger initial data binding
@@ -58,5 +59,15 @@ describe('AppComponent', () => {
 
         return { fixture, comp, linkDebugElts, routerLinks };
       });
+  }
+
+  function configure(testBed) {
+    testBed.configureTestingModule({
+      declarations: [
+        AppComponent,
+        RouterLinkDirectiveStub
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
+    });
   }
 });
