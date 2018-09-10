@@ -7,6 +7,11 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- ONLY include this if your app compiles to ES5 -->
+  <script src="node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"></script>
+  <!-- Required polyfill loader. It must `defer` so that Angular's polyfills load first. -->
+  <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js" defer></script>
 </head>
 <body>
   <app-root></app-root>

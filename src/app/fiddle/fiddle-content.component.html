@@ -8,9 +8,8 @@
 </div>
 <paper-input
   label="Hello from Polymer"
-  ironControl
   [(ngModel)]="value"
-  ngDefaultControl
+  origami
 >
 </paper-input>
 
@@ -18,12 +17,7 @@
   <label>Non-form two-way bindings!</label>
   <input type="checkbox" [(ngModel)]="checked">
 </div>
-<paper-checkbox
-  [checked]="checked"
-  (checked-changed)="checked = $event.detail.value"
->
-  Checked
-</paper-checkbox>
+<paper-checkbox [(ngModel)]="checked" origami>Checked</paper-checkbox>
 
 <div class="mt-4">
   <button (click)="logout()">Logout</button>

@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { PolymerModule } from '@codebakery/origami';
 // import { OutletComponent } from '@c8y/ngx-components';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,7 +13,6 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     SharedModule,
     CoreModule,
-    PolymerModule.forRoot(),
     LoginModule,
     AppRoutingModule
   ],
