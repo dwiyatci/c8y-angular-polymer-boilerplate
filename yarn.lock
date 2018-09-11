@@ -325,9 +325,9 @@
   dependencies:
     font-awesome "4.7.0"
 
-"@codebakery/origami@3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@codebakery/origami/-/origami-3.0.1.tgz#67a15121726581bb259ea268eabaec6a853d5b08"
+"@codebakery/origami@3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@codebakery/origami/-/origami-3.0.2.tgz#4f9846b8eaa6d5bfff73d4df8710d3cb42d4638b"
   dependencies:
     chalk "^2.4.1"
     node-glob "^1.2.0"

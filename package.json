@@ -17,7 +17,7 @@
     "@angular/router": "^6.1.0",
     "@c8y/ngx-components": "0.0.5",
     "@c8y/style": "0.0.2",
-    "@codebakery/origami": "3.0.1",
+    "@codebakery/origami": "3.0.2",
     "@polymer/paper-checkbox": "3.0.0-pre.25",
     "@polymer/paper-input": "3.0.0-pre.25",
     "@webcomponents/webcomponentsjs": "2.1.1",

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppComponent renders markup to snapshot 1`] = `
+<app-root>
+  <nav
+    class="navbar navbar-expand-lg navbar-light"
+    style="background-color: #e3f2fd;"
+  >
+    <a
+      class="navbar-brand"
+      ng-reflect-link-params="/"
+      routerlink="/"
+    >
+      <img
+        alt=""
+        class="d-inline-block align-top"
+        height="30"
+        src="assets/img/icons8-violin-100.png"
+        width="30"
+      />
+       Icycloutmu 
+    </a>
+    <div
+      class="collapse navbar-collapse"
+      id="navbarNavAltMarkup"
+    >
+      <div
+        class="navbar-nav"
+      >
+        <a
+          class="nav-item nav-link"
+          ng-reflect-link-params="/fiddle"
+          routerlink="/fiddle"
+        >
+          Fiddle
+        </a>
+        <a
+          class="nav-item nav-link"
+          ng-reflect-link-params="/about"
+          routerlink="/about"
+        >
+          About
+        </a>
+      </div>
+    </div>
+  </nav><router-outlet />
+</app-root>
+`;

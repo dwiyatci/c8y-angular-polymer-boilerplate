@@ -23,7 +23,7 @@
               "src/assets",
               {
                 "glob": "{*loader.js,*adapter.js,bundles/*.js}",
-                "input": "node_modules/@webcomponents/webcomponentsjs",
+                "input": "node_modules/@webcomponents/webcomponentsjs/",
                 "output": "node_modules/@webcomponents/webcomponentsjs"
               }
             ],
@@ -86,7 +86,7 @@
               "src/assets",
               {
                 "glob": "{*loader.js,*adapter.js,bundles/*.js}",
-                "input": "node_modules/@webcomponents/webcomponentsjs",
+                "input": "node_modules/@webcomponents/webcomponentsjs/",
                 "output": "node_modules/@webcomponents/webcomponentsjs"
               }
             ]
