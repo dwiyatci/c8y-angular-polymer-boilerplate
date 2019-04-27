@@ -30,7 +30,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "baseHref": "/apps/c8yangularpolymer/"
           },
           "configurations": {
             "production": {
@@ -56,6 +57,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "c8y-angular-polymer-boilerplate:build",
+            "baseHref": "/apps/c8yangularpolymer/",
             "proxyConfig": "proxy.conf.json"
           },
           "configurations": {

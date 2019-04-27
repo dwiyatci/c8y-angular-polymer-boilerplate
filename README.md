@@ -14,11 +14,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Make it easy to show the usage and/or fiddle around our newly-developing Angular 6+ data services and components as well as our framework-agnostic JS client lib. This also provides a free-playground to #rideWithTheHype of [Angular + #webComponents, #polymer, and #useThePlatform](https://github.com/hotforfeature/origami).
 
 ## Development server
-- Set the base href of the app context path of your choice in `index.html` (default to `<base href="/apps/c8yangularpolymer/">`).
+- Adapt the app context path of yours in `angular.json` (default to `c8yangularpolymer` \[sic.\]).
 
-- Configure the proxy target of REST API server in `proxy.conf.json`: change the target from `https://glenn.cumulocity.com/` to your own Cumulocity tenant URL. 
+- Configure the proxy target of REST API server in `proxy.conf.json`: change the target from `https://glenn.cumulocity.com` to your own Cumulocity tenant URL. 
 
-- Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Run `ng serve` for a dev server. Navigate to `http://localhost:4200/apps/{{app_context_path}}/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
