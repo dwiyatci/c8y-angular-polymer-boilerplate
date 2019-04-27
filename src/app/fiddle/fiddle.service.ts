@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import at from 'lodash/at';
 import { FiddleModule } from './fiddle.module';
-import { InventoryService } from '@c8y/client';
+import { InventoryService, PagingStrategy } from '@c8y/client';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class FiddleService {
     console.log('hi');
 
     let first = false;
-    const subscription = inventoryService.list$()
+    const subscription = inventoryService.list$({}, { pagingStrategy: PagingStrategy.ALL })
       .subscribe({
         next: (data) => {
           if (!first) {
